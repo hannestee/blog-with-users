@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 load_dotenv()
-app.config['SECRET_KEY'] = os.environ['APP_KEY2']
+app.config['SECRET_KEY'] = "test3"
 ckeditor = CKEditor(app)
 Bootstrap(app)
 

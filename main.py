@@ -11,11 +11,9 @@ from forms import CreatePostForm, CommentForm, RegisterForm, LoginForm
 from flask_gravatar import Gravatar
 from typing import Callable
 import os
-from dotenv import load_dotenv
 
 app = Flask(__name__)
-load_dotenv()
-app.config['SECRET_KEY'] = os.environ['APP_KEY2']
+app.config['SECRET_KEY'] = os.environ['APP_KEY']
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -33,7 +31,7 @@ gravatar = Gravatar(app,
 
 # CONNECT TO DB
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL",  "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 

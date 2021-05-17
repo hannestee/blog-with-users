@@ -11,9 +11,11 @@ from forms import CreatePostForm, CommentForm, RegisterForm, LoginForm
 from flask_gravatar import Gravatar
 from typing import Callable
 import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'test'
+load_dotenv()
+app.config['SECRET_KEY'] = os.environ['APP_KEY2']
 ckeditor = CKEditor(app)
 Bootstrap(app)
 

@@ -13,7 +13,7 @@ from typing import Callable
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ['APP_KEY']
+app.config['SECRET_KEY'] = 'test'
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
